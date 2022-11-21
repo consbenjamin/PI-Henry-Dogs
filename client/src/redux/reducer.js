@@ -4,7 +4,7 @@
 
 const initialState = {
     dogs: [],
-    allDogs: [],
+    allDogs: [], //estado que mantiene todas las razas de perros, para eviar problemas con los filtros
     temperaments: [],
     detail: []
 
@@ -38,7 +38,7 @@ function rootReducer (state= initialState, action) {
                 details: []
             }
 
-        case 'POST_DOG':
+        case 'POST_DOG': 
             return{
                 ...state
             }

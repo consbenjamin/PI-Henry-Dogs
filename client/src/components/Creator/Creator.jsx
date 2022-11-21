@@ -13,19 +13,15 @@ import './Creator.css';
 export default function Creator(){
     const dispatch = useDispatch();
     const history = useHistory();
-    const temperaments = useSelector((state) => state.temperaments);
+    const temperaments = useSelector((state) => state.temperaments); //me traigo el estado global de temperamentos
 
     const [input, setInput] = useState({
         name: '',
-        height: '',
-        weight: '',
+        height_min: '',
+        height_max: '',
+        weight_min: '',
+        weight_max: '',
         life_span: '',
-        // minWeight: '',
-        // maxWeight: '',
-        // minHeight: '',
-        // maxHeight: '',
-        // lifeSpanMin: '',
-        // lifeSpanMax: '',
         image: '',
         temperament: []
     })
@@ -34,27 +30,21 @@ export default function Creator(){
         dispatch(getTemperaments());
     }, [dispatch]);
 
+/////////////////////////////////////////////HANDLERS////////////////////////////////////////////////////////////////////// 
 
     function handleChange(el){
         setInput({
             ...input,
-            [el.target.name] : el.target.value  // {key: value} brackets notion pq no conozco el valor de "name"
+            [el.target.name] : el.target.value
         })
         console.log(input)
     };
 
     function handleSelect(el){
-        if(input.temperament.includes(el.target.value)){
-            setInput({
-                ...input,
-                temperament: [...input.temperament/*  el.target.value */]                                 
-            })
-        }else{
-            setInput({
-                ...input,
-                temperament: [...input.temperament, el.target.value]                                 
-            })
-        }
+        setInput({
+            ...input,
+            temperament: [...input.temperament,  el.target.value ]                                 
+        })
     };
 
     function handleSubmit(el){
@@ -64,20 +54,18 @@ export default function Creator(){
         alert('Created Dog succesfully!')
         setInput({
             name: '',
-            weight: '',
-            height: '',
+            height_min: '',
+            height_max: '',
+            weight_min: '',
+            weight_max: '',
             life_span: '',
-            // minWeight: '',
-            // maxWeight: '',
-            // minHeight: '',
-            // maxHeight: '',
-            // lifeSpanMin: '',
-            // lifeSpanMax: '',
             image: '',
             temperament: []
         })
         history.push('/home')
     };
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return(
         <div>
@@ -94,13 +82,13 @@ export default function Creator(){
                 </div>
                 <div>
                     <label>Altura:</label>
-                    <input type="text" value={input.height} name='height' placeholder='' onChange={(el) => handleChange(el)} />
-                    {/* <input type="text" value={input.maxHeight} name='maxHeight' placeholder='Altura maxima' onChange={(el) => handleChange(el)} /> */}
+                    <input type="text" value={input.height_min} name='height_min' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.height_max} name='height_max' placeholder='' onChange={(el) => handleChange(el)} />
                 </div>
                 <div>
                     <label>Peso:</label>
-                    <input type="text" value={input.weight} name='weight' placeholder='' onChange={(el) => handleChange(el)} />
-                    {/* <input type="text" value={input.maxWeight} name='maxWeight' placeholder='Peso maximo' onChange={(el) => handleChange(el)} /> */}
+                    <input type="text" value={input.weight_min} name='weight_min' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.weight_max} name='weight_max' placeholder='' onChange={(el) => handleChange(el)} />
                 </div>
                 <div>
                     <label>Esperanza de vida:</label>
