@@ -10,7 +10,7 @@ export default function Detail(props){
 
     useEffect(() => {
         dispatch(getDetail(props.match.params.id));
-    },[dispatch])
+    },[dispatch, props.match.params.id])
 
     const myDog = useSelector((state) => state.detail)
 
