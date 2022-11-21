@@ -20,7 +20,7 @@ export default function Card({id, name, image, weight, temperaments}) {
                 <div className="cardText">
                     <h2 className="cardTitle">{name}</h2>
                     <h4 className="cardSub">{weight} kg</h4>
-                    <div className="temp-wrapper">
+                    <div>
                         <p className="cardTemp">{temp}</p>
                     </div>
                 </div>

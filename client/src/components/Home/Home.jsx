@@ -7,6 +7,8 @@ import './Home.css';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import SearchBar from '../SearchBar/SearchBar';
+import LinkedIn from '../../img/linkedin.png';
+import Github from '../../img/github.png';
 
 export default function Home () {
     const dispatch = useDispatch()  //para despachar las acciones con la constante
@@ -118,6 +120,7 @@ export default function Home () {
                 currentPage={currentPage}
                 />
                 <SearchBar handleClick={handleClick}/>
+            </div>
                 <div className='containerDogs'>
                     {currentDogs?.map((el) => {
                             return (
@@ -132,6 +135,20 @@ export default function Home () {
                             )
                         })
                     }
+                </div>
+            <div className='footer'>
+                <div className='credits'>
+                    <ul>
+                        <li>
+                            <a href="">Constantino Abba, 2022</a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/constantino-abba-fullstackdev/"><img width='30' height='30' src={LinkedIn} alt="linkedIn" /></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/consbenjamin"><img width='30' height='30' src={Github} alt="gitHub" /></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

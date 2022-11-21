@@ -43,8 +43,6 @@ router.get('/:idRaza', async (req, res) => {
     }
 });
 
-
-
 /* POST /dogs: 
     recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body 
     crea una raza de perro en la base de datos relacionada con sus temperamentos */
@@ -52,8 +50,10 @@ router.get('/:idRaza', async (req, res) => {
 router.post('/', async (req,res) => {
     const {
         name, 
-        weight,
-        height,
+        weightMin,
+        weightMax,
+        heightMin,
+        heightMax,
         life_span, 
         temperament, 
         image, 
@@ -63,8 +63,8 @@ router.post('/', async (req,res) => {
     try {
     const createDog = await Dog.create ({
         name,
-        weight,
-        height,
+        height: `${heightMin} - ${heightMax}`,
+        weight: `${weightMin} - ${weightMax}`,
         life_span: life_span + " years",
         temperament,
         image,

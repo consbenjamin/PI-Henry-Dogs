@@ -17,10 +17,10 @@ export default function Creator(){
 
     const [input, setInput] = useState({
         name: '',
-        height_min: '',
-        height_max: '',
-        weight_min: '',
-        weight_max: '',
+        heightMin: '',
+        heightMax: '',
+        weightMin: '',
+        weightMax: '',
         life_span: '',
         image: '',
         temperament: []
@@ -54,10 +54,10 @@ export default function Creator(){
         alert('Created Dog succesfully!')
         setInput({
             name: '',
-            height_min: '',
-            height_max: '',
-            weight_min: '',
-            weight_max: '',
+            heightMin: '',
+            heightMax: '',
+            weightMin: '',
+            weightMax: '',
             life_span: '',
             image: '',
             temperament: []
@@ -82,13 +82,13 @@ export default function Creator(){
                 </div>
                 <div>
                     <label>Altura:</label>
-                    <input type="text" value={input.height_min} name='height_min' placeholder='' onChange={(el) => handleChange(el)} />
-                    <input type="text" value={input.height_max} name='height_max' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.heightMin} name='heightMin' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.heightMax} name='heightMax' placeholder='' onChange={(el) => handleChange(el)} />
                 </div>
                 <div>
                     <label>Peso:</label>
-                    <input type="text" value={input.weight_min} name='weight_min' placeholder='' onChange={(el) => handleChange(el)} />
-                    <input type="text" value={input.weight_max} name='weight_max' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.weightMin} name='weightMin' placeholder='' onChange={(el) => handleChange(el)} />
+                    <input type="text" value={input.weightMax} name='weightMax' placeholder='' onChange={(el) => handleChange(el)} />
                 </div>
                 <div>
                     <label>Esperanza de vida:</label>
