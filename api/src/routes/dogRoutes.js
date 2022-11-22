@@ -54,7 +54,8 @@ router.post('/', async (req,res) => {
         weightMax,
         heightMin,
         heightMax,
-        life_span, 
+        lifeSpanMin,
+        lifeSpanMax, 
         temperament, 
         image, 
         createdInDb
@@ -65,7 +66,7 @@ router.post('/', async (req,res) => {
         name,
         height: `${heightMin} - ${heightMax}`,
         weight: `${weightMin} - ${weightMax}`,
-        life_span: life_span + " years",
+        life_span: `${lifeSpanMin} - ${lifeSpanMax}` + ' years',
         temperament,
         image,
         createdInDb

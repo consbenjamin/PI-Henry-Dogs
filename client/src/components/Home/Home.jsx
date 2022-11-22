@@ -140,7 +140,7 @@ export default function Home () {
                 <div className='credits'>
                     <ul>
                         <li>
-                            <a href="">Constantino Abba, 2022</a>
+                            <span>Constantino Abba, 2022</span>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/constantino-abba-fullstackdev/"><img width='30' height='30' src={LinkedIn} alt="linkedIn" /></a>

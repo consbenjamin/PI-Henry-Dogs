@@ -1,11 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './LandingPage.css';
+import Imagen from '../../img/dogLanding.jpg';
 
 export default function LandingPage(){
 
     return(
         <div className='landing'>
+                <img className='landingImg' src={Imagen} alt="dogLanding" />
             <div className='landingText'>
                 <span className='landingName'>PI DOGS</span>
                 <div className='landingWrapper'>

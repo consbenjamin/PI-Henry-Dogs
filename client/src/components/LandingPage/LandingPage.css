@@ -1,3 +1,8 @@
+.landingImg{
+    float: right;
+    width:1260px;
+    height: 965px;
+}
 .landing {
     background-color: rgba(255, 0, 0, 0.767);
     background-position: center; 
@@ -5,6 +10,7 @@
     height: 100%; 
     position: absolute;
 }
+
 
 .landingName {
     display: flex;
