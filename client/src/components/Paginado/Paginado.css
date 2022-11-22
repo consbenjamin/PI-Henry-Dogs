@@ -1,23 +1,10 @@
-/* .pagination {
+.pagination {
     display: flex;    
     flex-direction: row;    
     align-items: center;
     justify-content:center;
     list-style: none;
-    /* border: 1px solid black; */
-
-
-/* .number {
-    height: 2.5em;
-    width: 2.5em;
-    margin: 6px;    
-    border-radius: 6px;
-    border: 1px solid black;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 15px;
-} */ 
+}
 
 ul.pagination {
     display: inline-block;
@@ -46,5 +33,25 @@ ul.pagination li a {
     padding: 8px 16px;
     text-decoration: none;
     border: 1px solid black;
+}
+
+.backnext1{
+    padding-top: 6px;
+    float: left;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.backnext2{
+    padding-top: 6px;
+    float: right;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 20px;
 }
 

@@ -8,6 +8,7 @@ a{
 
 /* contenedor de la Card */
 .container {
+    display: flex;
     width: 300px;
     height: 420px;
     background-color: white;
@@ -45,8 +46,10 @@ a{
 /* titulo tarjeta */
 .cardTitle {
     color: #201616;
+    display: flex;
+    flex-wrap: nowrap;
     margin-top: 20px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 800;
     width: 180px;
     margin-left: 25px;
@@ -54,6 +57,8 @@ a{
 
 /* subtitulo peso */
 .cardSub {
+    display: flex;
+    justify-content: left;
     color: gray;
     margin-left: 25px;
     margin-top: -10px;
@@ -61,9 +66,10 @@ a{
 
 /* texto temperamentos */
 .cardTemp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     color: black;
-    margin-top: -5px;
-    width: 250px;
-    margin-left: 25px;
-    font-size: 0.9em;
+    width: 100%;
+    font-size: 1em;
 }
