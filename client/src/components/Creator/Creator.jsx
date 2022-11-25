@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTemperaments, postDog } from '../../redux/actions';
-import LinkedIn from '../../img/linkedin.png';
-import Github from '../../img/github.png';
 
 import './Creator.css';
 
@@ -53,9 +51,9 @@ export default function Creator(){
     const dispatch = useDispatch();
     const history = useHistory();
     const temperaments = useSelector((state) => state.temperaments); //me traigo el estado global de temperamentos desde redux
-    
-    const [errors, setErrors] = useState({})
 
+    
+    const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         name: '',
         heightMin: '',
@@ -66,9 +64,9 @@ export default function Creator(){
         lifeSpanMax: '',
         image: '',
         temperament: []
-    })
-
-    useEffect(() => {
+    });
+    //Cuando actualizamos el estado de los input , useEffect espera que se despache la accion para montarse el componente
+    useEffect(() => { 
         dispatch(getTemperaments());
     }, [dispatch]);
 
@@ -91,7 +89,23 @@ export default function Creator(){
             ...input,
             temperament: [...input.temperament,  el.target.value ]                                 
         })
+    //sacar elemento de la lista en el creator:
+    const index = temperaments.findIndex(object => {
+        return object.name === el.target.value
+    })
+    if (index > -1) {
+        temperaments.splice(index, 1)
     };
+    };
+
+    function handleDelete(el){
+        setInput({
+            ...input,
+            temperament: input.temperament.filter(t=>t !== el.target.value)
+        })
+        temperaments.push(el)
+        console.log(el)
+    }
 
     function handleSubmit(el){
         el.preventDefault();
@@ -112,6 +126,7 @@ export default function Creator(){
         history.push('/home')
     };
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return(
@@ -128,66 +143,66 @@ export default function Creator(){
                                     <div className='wrapperDual'>
                                         <label>Nombre:</label>
                                         <input className='createField' type="text" value={input.name} name= 'name' placeholder='Name' onChange={(el) => handleChange(el)} />
-                                        <div>{   input.name === '' ? <a className="errors">*Campo obligatorio</a> :                                
-                                                <a className="validations"></a>
+                                        <div>{   input.name === '' ? <span className="errors">*Campo obligatorio</span> :                                
+                                                <span className="validations"></span>
                                         }</div>
                                     </div>
                                     <div className='wrapperDual'>
                                         <label>Altura:</label>
                                         <input className='createField' type="text" value={input.heightMin} name='heightMin' placeholder='Min' onChange={(el) => handleChange(el)} />
                                         <label></label>
-                                        {   input.name !== '' && input.heightMin === '' ? <a className="errors">{errors.heightMin}</a> :
-                                            errors.heightMin ? <a className="errors">{errors.heightMin}</a> :
-                                            <a className="validations"></a>
+                                        {   input.name !== '' && input.heightMin === '' ? <span className="errors">{errors.heightMin}</span> :
+                                            errors.heightMin ? <span className="errors">{errors.heightMin}</span> :
+                                            <span className="validations"></span>
                                         }
                                         <input className='createField' type="text" value={input.heightMax} name='heightMax' placeholder='Max' onChange={(el) => handleChange(el)} />
-                                        {   input.heightMin !== '' && input.heightMax==='' ? <a className="errors">{errors.heightMax}</a>
+                                        {   input.heightMin !== '' && input.heightMax==='' ? <span className="errors">{errors.heightMax}</span>
                                             :
-                                            errors.heightMax ? <a className="errors">{errors.heightMax}</a>
+                                            errors.heightMax ? <span className="errors">{errors.heightMax}</span>
                                             :
-                                            <a className="validations"></a>
+                                            <span className="validations"></span>
                                         }
                                     </div>
                                     <div className='wrapperDual'>
                                         <label>Peso:</label>
                                         <input className='createField' type="text" value={input.weightMin} name='weightMin' placeholder='Min' onChange={(el) => handleChange(el)} />
-                                        {   input.weightMax !=='' && input.weightMin==='' ? <a className="errors">{errors.weightMin}</a>
+                                        {   input.weightMax !=='' && input.weightMin==='' ? <span className="errors">{errors.weightMin}</span>
                                             :
-                                            errors.weightMin ? <a className="errors">{errors.weightMin}</a>
+                                            errors.weightMin ? <span className="errors">{errors.weightMin}</span>
                                             :
-                                            <a className="validations"></a>
+                                            <span className="validations"></span>
                                         }
                                         <label></label>
                                         <input className='createField' type="text" value={input.weightMax} name='weightMax' placeholder='Max' onChange={(el) => handleChange(el)} />
-                                        {   input.weightMin !=='' && input.weightMax==='' ? <a className="errors">{errors.weightMax}</a>
+                                        {   input.weightMin !=='' && input.weightMax==='' ? <span className="errors">{errors.weightMax}</span>
                                             :
-                                            errors.weightMax ? <a className="errors">{errors.weightMax}</a>
+                                            errors.weightMax ? <span className="errors">{errors.weightMax}</span>
                                             :
-                                            <a className="validations"></a>
+                                            <span className="validations"></span>
                                         }
                                     </div>
                                     <div className='wrapperDual'>
                                         <label>Esperanza de vida:</label>
                                         <input className='createField' type="text" value={input.lifeSpanMin} name='lifeSpanMin' placeholder='Min' onChange={(el) => handleChange(el)} />
-                                        {   input.lifeSpanMax !=='' && input.lifeSpanMin==='' ? <a className="errors">{errors.lifeSpanMin}</a>
+                                        {   input.lifeSpanMax !=='' && input.lifeSpanMin==='' ? <span className="errors">{errors.lifeSpanMin}</span>
                                             :
-                                            errors.lifeSpanMin ? <a className="errors">{errors.lifeSpanMin}</a>
+                                            errors.lifeSpanMin ? <span className="errors">{errors.lifeSpanMin}</span>
                                             :
-                                            <a className="validations"></a>
+                                            <span className="validations"></span>
                                         }
                                         <label></label>
                                         <input className='createField' type="text" value={input.lifeSpanMax} name='lifeSpanMax' placeholder='Max' onChange={(el) => handleChange(el)} />
-                                        {   input.lifeSpanMin !=='' && input.lifeSpanMax==='' ? <a className="errors">{errors.lifeSpanMax}</a>
+                                        {   input.lifeSpanMin !=='' && input.lifeSpanMax==='' ? <span className="errors">{errors.lifeSpanMax}</span>
                                             :
-                                            errors.lifeSpanMax ? <a className="errors">{errors.lifeSpanMax}</a>
+                                            errors.lifeSpanMax ? <span className="errors">{errors.lifeSpanMax}</span>
                                             :
-                                            <a className="validations"></a>
+                                            <span className="validations"></span>
                                         }
                                     </div>
                                     <div className='wrapperDual'>
                                         <label>Imagen:</label>
                                         <input className='createField' type="url" value={input.image} name='image' placeholder='Image' onChange={(el) => handleChange(el)} />
-                                        {input.image !='' && errors.image !='' ? <a className="errors">{errors.image}</a>:''}
+                                        {input.image !=='' && errors.image !=='' ? <span className="errors">{errors.image}</span>:''}
                                     </div>
                                     <div className='wrapperDual'>
                                         <label>Temperamentos:</label>
@@ -199,7 +214,20 @@ export default function Creator(){
                                             )
                                         })}
                                         </select>
-                                        <ul><li>{input.temperament.map(el => el + ' ,')}</li></ul>
+                                        <div className='box'>    
+                                            <div className='temp_selected'>
+                                                {/* Temperamentos Seleccionados:  */}                       
+                                                { input.temperament.length ? input.temperament.map((t)=>{                            
+                                                    return (
+                                                    <div value={t} key={t} > {t}
+                                                        <button className='delete_temps' value={t} onClick={(el)=>handleDelete(el)} >
+                                                        ❌
+                                                        </button>
+                                                    </div>)
+                                                    
+                                                }):<li className='errors' > Debe selecionar al menos un temperamento!</li>}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 { //VALIDACION DE ESTADO PARA HABILITAR BOTON
@@ -209,11 +237,11 @@ export default function Creator(){
                                 || errors.lifeSpanMax || errors.image
 
                                 ||!input.temperament.length ?                        
-                            <button disabled onClick={e=>handleSubmit(e)} className='button_block'>
+                            <button onClick={e=>handleSubmit(e)} disabled = {true} className='button_block'>
                                 <span> Errores en el Fromulario </span>
                             </button>
                             :
-                            <button onClick={e=>handleSubmit(e)} className='createButton' type="submit">Create Dog</button>
+                            <button onClick={el=>handleSubmit(el)} className='createButton' type="submit"><span>Create Dog</span></button>
                                 }
                         </form>
                     </div>

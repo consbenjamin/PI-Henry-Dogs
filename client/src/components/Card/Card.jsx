@@ -27,4 +27,44 @@ export default function Card({id, name, image, weight, temperaments}) {
             </Link>
         </div>
     )
-}; 
+};
+
+
+
+
+
+
+
+
+// export default class Card extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         console.log(this.props)
+
+//     let temp = '';
+
+//     Array.isArray(this.props.temperaments) ?
+//     temp = this.props.temperaments.map(el => {
+//         return el.name
+//     }).join(',') : temp = this.props.temperaments
+
+//     }
+//     render() {
+//         return(
+//             <div className='container'>
+//                 <Link className="card" to={`/home/${this.props.id}`}>
+//                     <div className="wrapperImg">
+//                         <img className="imgDog" src={this.props.image} alt={this.props.name}/>
+//                     </div>
+//                     <div className="cardText">
+//                         <h2 className="cardTitle">{this.props.name}</h2>
+//                         <h4 className="cardSub">{this.props.weight} kg</h4>
+//                         <div className='containerTemp'>
+//                             <p className="cardTemp">{this.props.temperaments}</p>
+//                         </div>
+//                     </div>
+//                 </Link>
+//             </div>
+//         )
+//     }
+// }

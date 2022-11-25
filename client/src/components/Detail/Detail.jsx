@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector,} from 'react-redux';
 import { getDetail } from '../../redux/actions';
 import { useEffect } from 'react';
 import './Detail.css'
@@ -13,7 +13,7 @@ export default function Detail(props){
         dispatch(getDetail(props.match.params.id));
     },[dispatch, props.match.params.id])
 
-    const myDog = useSelector((state) => state.detail)
+    const myDog = useSelector((state) => state.detail);
 
     return (
         <div className='backgroundDetail'>
@@ -45,3 +45,20 @@ export default function Detail(props){
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {(typeof details.id === 'string') ? details.id.includes('-') &&
+//             <button onClick={handleDelete}>Delete</button> : null}

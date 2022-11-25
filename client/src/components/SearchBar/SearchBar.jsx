@@ -5,8 +5,8 @@ import { getByName } from '../../redux/actions';
 import './SearchBar.css';
 
 export default function SearchBar (){
-    const dispatch = useDispatch()
-    const [name, setName] = useState('')
+    const dispatch = useDispatch();
+    const [name, setName] = useState('');
 
     function handleInputChange(el){
         el.preventDefault()

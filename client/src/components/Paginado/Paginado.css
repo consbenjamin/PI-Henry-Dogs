@@ -15,17 +15,17 @@ ul.pagination {
 
 ul.pagination li {display: inline;}
 
-ul.pagination li a.active {
+ul.pagination li span.active {
     color: white;
 }
 
-ul.pagination li a:hover:not(.active) {
+ul.pagination li span:hover:not(.active) {
     
     background-color: #ddd;
     border-radius: 8px;
 }
 
-ul.pagination li a {
+ul.pagination li span {
     transition: background-color .4s;
     margin: 4px 4px 2px 2px;
     color: black;

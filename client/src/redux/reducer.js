@@ -1,10 +1,10 @@
 // estado inicial de nuestro reducer.
-// acá traigo la lista de las razas, los temperamentos
+// acá traigo la lista de las razas, los temperamentos y los detalles si se pidieron
 
 
 const initialState = {
     dogs: [],
-    allDogs: [], //estado que mantiene todas las razas de perros, para eviar problemas con los filtros
+    allDogs: [], //estado que mantiene todas las razas de perros, sobre esta se hacen los filtros para evitar problemas con los arrays ya filtrados
     temperaments: [],
     detail: []
 
@@ -106,7 +106,6 @@ function rootReducer (state= initialState, action) {
                 dogs: arrByWeight,
             };
 
-
         case 'FILTER_CREATED':
             const createdFilter = action.payload === 'DB' ? state.allDogs.filter(el => el.createdInDb) : state.allDogs.filter(el => !el.createdInDb);
             if(!createdFilter.length){
@@ -123,21 +122,39 @@ function rootReducer (state= initialState, action) {
             }
 
         case 'FILTER_BY_TEMP':
+            
             const allDogsState = state.allDogs;
-            const tempsFilter = (action.payload === 'All') ? state.allDogs : allDogsState.filter((el) => el.temperament?.includes(action.payload))
+            const tempsFilter = (action.payload === 'all') ? allDogsState : allDogsState.filter((el) => el.temperament?.includes(action.payload));
+
+            // const filterDb = [];
+            // allDogsState.forEach(el => {
+            //     if (typeof el.id === 'string') {
+            //         el.temperaments.forEach(el => {
+            //             if (el.name === action.payload) filterDb.push(el)
+            //         })
+            //     }
+            // })
+            // console.log(filterDb)
             return {
                 ...state,
-                dogs: tempsFilter,
+                dogs: tempsFilter                                //.concat(filterDb)                   
             };
 
         case 'GET_DETAILS':
             return{
                 ...state,
                 detail: action.payload
-            }
+            };
 
+        // case 'DELETE_DOG' :
+        //     return {
+        //         ...state
+        //     };
+            
         default: 
-            return state;
+            return {
+                ...state
+            };
     }
 }
 

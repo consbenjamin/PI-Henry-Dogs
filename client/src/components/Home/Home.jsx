@@ -12,7 +12,7 @@ import Github from '../../img/github.png';
 
 export default function Home () {
     const dispatch = useDispatch()  //para despachar las acciones con la constante
-    const allDogs = useSelector ((state) => state.dogs)
+    const allDogs = useSelector ((state) => state.dogs) //se extrae el array de dogs desde el store
     const temperaments = useSelector((state) => state.temperaments)
 
     // paginado
@@ -79,25 +79,25 @@ export default function Home () {
             <div className='navBg'>
                 <h1>HENRY DOGS</h1>
                 <div className='filterOrder'>
-                    <select className='dropdown' onChange={el => handleFilterTemp(el)}>
+                    <select onChange={el => handleFilterTemp(el)}>
                         <option disabled selected>Temperamentos:</option>
-                        <option value= 'All'>All</option>
+                        <option value= 'all'>All</option>
                         {temperaments && temperaments.map(el=>{
                             return <option value={el.name}>{el.name}</option>
                         })}
                     </select>
-                    <select className='dropdown' onChange={el => handleFilterCreated(el)}>
+                    <select onChange={el => handleFilterCreated(el)}>
                         <option disabled selected>Origen:</option>
                         <option value="ALL">Todos</option>
                         <option value="API">Existentes</option>
                         <option value="DB">Creados</option>
                     </select>
-                    <select className='dropdown' onChange={el => handleSortName(el)}>
+                    <select onChange={el => handleSortName(el)}>
                         <option disabled selected>Orden Alfabetico</option>
                         <option value="asc">Nombre (A-Z)</option>
                         <option value="des">Nombre (Z-A)</option>
                     </select>
-                    <select className='dropdown' onChange={el => handleFilterWeight(el)}>
+                    <select onChange={el => handleFilterWeight(el)}>
                         <option disabled selected>Orden por peso</option>
                         <option value="min">Peso minimo</option>
                         <option value="max">Peso maximo</option>
@@ -105,7 +105,7 @@ export default function Home () {
                     <button className='clearFilter' onClick={handleClear}>Clear Filter</button>
                     <div className='createDog'>
                     <Link to='/dog'>
-                        <button>Crear nueva raza!</button>
+                        <button className='homeCreate'>Crear nueva raza!</button>
                     </Link>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ export default function Home () {
                 <div className='credits'>
                     <ul>
                         <li>
-                            <span>Constantino Abba, 2022</span>
+                            <span>Constantino Abba - 2022</span>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/constantino-abba-fullstackdev/"><img width='30' height='30' src={LinkedIn} alt="linkedIn" /></a>

@@ -58,6 +58,7 @@
 .descriptionDetail{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content:space-around;
     margin: auto 20px 20px 20px;    
     font-size: 16px;    
@@ -66,6 +67,7 @@
 .dataDetail{
     display: flex;
     justify-content:flex-start ;
+    flex-wrap: wrap;
     align-items: center;
     width: 275px;        
 }

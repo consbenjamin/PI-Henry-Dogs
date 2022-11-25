@@ -17,7 +17,7 @@ export default function Paginado ({dogsPerPage, allDogs, paginado, currentPage})
                     <button className='backnext1' onClick={currentPage> 1 ? () => paginado(currentPage-1): null}>❮❮</button>
                     {pageNumbers  && pageNumbers.map(number =>(
                         <li>
-                        <a onClick={() => paginado(number)}>{number}</a>
+                        <span onClick={() => paginado(number)}>{number}</span>
                         </li>
                     ))}
                     <button className='backnext2' onClick={currentPage !== pageNumbers.length ?() => paginado(currentPage+1): null}>❯❯</button>
