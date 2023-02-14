@@ -63,7 +63,7 @@ export function postDog(payload){
 };
 
 
-export function getDetail(id){
+export function getDetail(id,){
     return async function (dispatch){
         try{
             const json = await axios.get('http://localhost:3001/dogs/' + id)

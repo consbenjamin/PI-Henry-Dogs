@@ -124,7 +124,7 @@ function rootReducer (state= initialState, action) {
         case 'FILTER_BY_TEMP':
             
             const allDogsState = state.allDogs;
-            const tempsFilter = (action.payload === 'all') ? allDogsState : allDogsState.filter((el) => el.temperament?.includes(action.payload));
+            const tempsFilter = (action.payload === 'all') ? allDogsState : allDogsState.filter((el) => el.temperament?.includes(action.payload))
 
             // const filterDb = [];
             // allDogsState.forEach(el => {
@@ -132,13 +132,14 @@ function rootReducer (state= initialState, action) {
             //         el.temperaments.forEach(el => {
             //             if (el.name === action.payload) filterDb.push(el)
             //         })
-            //     }
+            //     }--
             // })
             // console.log(filterDb)
             return {
                 ...state,
-                dogs: tempsFilter                                //.concat(filterDb)                   
+                dogs: tempsFilter                                         //.concat(filterDb)                   
             };
+            
 
         case 'GET_DETAILS':
             return{
