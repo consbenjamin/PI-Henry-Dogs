@@ -5,7 +5,7 @@ import Home from './components/Home/Home';
 import Detail from './components/Detail/Detail';
 import Creator from './components/Creator/Creator';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://pi-henry-dogs-production.up.railway.app/';
 
 function App() {
   return (
